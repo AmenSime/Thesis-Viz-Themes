@@ -1,3 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Bible Semantic Network - Themes</title>
+    <!-- Include your CSS, vis.js, and any additional libraries here -->
+    <style>
+        .nav-buttons {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .nav-buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #3366cc;
+            color: white;
+        }
+        .nav-buttons button:hover {
+            background-color: #254a99;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button onclick="window.location.href='https://amensime.github.io/Thesis-Viz-Emotions/'">
+            Go to Emotions Visualization
+        </button>
+        <button onclick="window.location.href='https://amensime.github.io/Thesis-Viz-Sentiments/'">
+            Go to Sentiments Visualization
+        </button>
+    </div>
+
+    <!-- Your existing semantic network visualization container -->
+    <div id="mynetwork" style="width: 100%; height: 90vh; border: 1px solid lightgray;"></div>
+
+    <!-- Your existing script to initialize the vis.js network -->
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script>
+        // Example initialization (replace with your actual nodes, edges, and options)
+        const nodes = new vis.DataSet([
+            { id: 1, label: 'Creation' },
+            { id: 2, label: 'Redemption' },
+            { id: 3, label: 'Faith' }
+        ]);
+
+        const edges = new vis.DataSet([
+            { from: 1, to: 2 },
+            { from: 2, to: 3 }
+        ]);
+
+        const container = document.getElementById('mynetwork');
+        const data = { nodes: nodes, edges: edges };
+        const options = {
+            nodes: {
+                shape: 'dot',
+                size: 16
+            },
+            physics: {
+                stabilization: false
+            }
+        };
+
+        const network = new vis.Network(container, data, options);
+    </script>
+</body>
+</html>
+
 <html>
     <head>
         <meta charset="utf-8">
